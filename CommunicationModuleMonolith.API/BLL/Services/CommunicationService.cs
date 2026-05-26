@@ -1,16 +1,18 @@
-using CommunicationModuleMonolith.Interfaces;
-using CommunicationModuleMonolith.Models;
-using CommunicationModuleMonolith.Handlers;
+using CommunicationModuleMonolith.API.BLL.Handlers;
+using CommunicationModuleMonolith.API.BLL.Interfaces;
+using CommunicationModuleMonolith.API.BLL.Models;
 
-namespace CommunicationModuleMonolith.Services;
+namespace CommunicationModuleMonolith.API.BLL.Services;
 
 public class CommunicationService : ICommunicationService
 {
     private readonly IEnumerable<IOperationHandler> _handlers;
+
     public CommunicationService(IEnumerable<IOperationHandler> handlers)
     {
         _handlers = handlers;
     }
+
     public string GetStatus()
     {
         return "Monolith communication service is running";
@@ -18,8 +20,6 @@ public class CommunicationService : ICommunicationService
 
     public CommunicationResponse ProcessRequest(CommunicationRequest request)
     {
-        // Simulate processing the request
-
         if (string.IsNullOrEmpty(request.Operation))
         {
             return new CommunicationResponse

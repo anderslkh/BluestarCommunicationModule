@@ -1,5 +1,5 @@
-﻿using CommunicationModuleMonolith.Interfaces;
-using CommunicationModuleMonolith.Models;
+using CommunicationModuleMonolith.API.BLL.Interfaces;
+using CommunicationModuleMonolith.API.BLL.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CommunicationModuleMonolith.API.Controllers;
@@ -31,6 +31,7 @@ public class CommunicationController : ControllerBase
         {
             return BadRequest(response);
         }
+
         return Ok(response);
     }
 }
